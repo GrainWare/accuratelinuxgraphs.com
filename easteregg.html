@@ -53,23 +53,14 @@
         <hr>
 
         <div class="content-item graph">
-            <h2>How many badges are there on the main page?</h2>
-            <input type="radio" name="badges" value="0" checked style="display:none">
-            <input type="radio" name="badges" value="incorrect"> 593<br>
-            <input type="radio" name="badges" value="incorrect"> 982<br>
-            <input type="radio" name="badges" value="correct"> 123<br>
-            <input type="radio" name="badges" value="incorrect"> 583<br>
-            <script>
-                var count = badges.length;
-                var radios = document.getElementsByName('badges');
-                for (var i = 0; i < radios.length; i++) {
-                    if (radios[i].value == 'correct') {
-                        radios[i].nextSibling.nodeValue = ' ' + count;
-                    }
-                }
-            </script>
-            <button onclick="checkBadges()">Submit</button>
-            <p id="badges-answer"></p>
+            <h2>Do we value accuracy</h2>
+            <input type="radio" name="accuracy" value="0" checked style="display:none">
+            <input type="radio" name="accuracy" value="incorrect"> We hate accuracy<br>
+            <input type="radio" name="accuracy" value="incorrect"> Linux<br>
+            <input type="radio" name="accuracy" value="correct"> Accuracy is priority<br>
+            <input type="radio" name="accuracy" value="incorrect"> We are neutral on accuracy<br>
+            <button onclick="checkAccuracy()">Submit</button>
+            <p id="accuracy-answer"></p>
         </div>
         <hr>
 
