@@ -40,21 +40,21 @@ function checkKernel() {
     }
 }
 
-function checkBadges() {
-    var answer = document.querySelector('input[name="badges"]:checked').value;
+function checkAccuracy() {
+    var answer = document.querySelector('input[name="accuracy"]:checked').value;
     if (answer == "0") {
-        document.getElementById("badges-answer").innerHTML = "try actually answering the question, enjoy 2 minutes of the free software song!";
+        document.getElementById("accuracy-answer").innerHTML = "try actually answering the question, enjoy 2 minutes of the free software song!";
         let audio = new Audio('files/free-software-song.ogg');
         audio.play();
         return false;
     }
     if (answer == "correct") {
-        document.getElementById("badges-answer").innerHTML = "Correct!";
+        document.getElementById("accuracy-answer").innerHTML = "Correct!";
         let audio = new Audio('files/answer-correct.mp3');
         audio.play();
         return true;
     } else {
-        document.getElementById("badges-answer").innerHTML = "Incorrect!";
+        document.getElementById("accuracy-answer").innerHTML = "Incorrect!";
         let audio = new Audio('files/sad-trombone.mp3');
         audio.play();
         return false;
@@ -74,7 +74,7 @@ function resetRadio() {
 function getAnswers() {
     var linux = checkLinux();
     var kernel = checkKernel();
-    var badges = checkBadges();
+    var accuracy = checkAccuracy();
     var correct = 0;
 
     if (linux) {
@@ -83,7 +83,7 @@ function getAnswers() {
     if (kernel) {
         correct++;
     }
-    if (badges) {
+    if (accuracy) {
         correct++;
     }
 
