@@ -17,7 +17,7 @@ body {
   background-size: 100px;
   background-repeat: repeat;
   background-attachment: fixed;
-  animation: move 5s infinite linear;
+  animation: move 20s infinite linear;
   color: white;
   text-align: center;
   overflow-x: hidden; 
@@ -50,7 +50,7 @@ body {
 
 .main-content .content-item .graph-img:hover {
   border-color: #e5e100;
-  animation: vibrate 0.4s infinite linear;
+  animation: vibrate 3s infinite linear;
   animation-direction: alternate;
 }
 
@@ -61,7 +61,7 @@ body {
 
 .main-content .graph .graph-download-button img {
   width: 20vw;
-  animation: download-button-swag 2s infinite cubic-bezier(.79,.14,.15,.86);
+  animation: download-button-swag 5s infinite cubic-bezier(.79,.14,.15,.86);
   animation-direction: alternate;
 }
 
