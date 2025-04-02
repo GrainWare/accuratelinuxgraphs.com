@@ -125,3 +125,18 @@ document.addEventListener('DOMContentLoaded', function() {
     return false;
   }
 });
+
+accurotate = false;
+
+function toggleAccuRotate() {
+  if (!accurotate) {
+    accurotate = true;
+    document.querySelector(".main-content").style.animation = 'rotate 60s infinite linear';
+    document.getElementById("accuRotateBtn").innerHTML = '<p><span class="wavy-wrapper"><span style="--char-index: 0;" class="wavy-char">d</span><span style="--char-index: 1;" class="wavy-char">i</span><span style="--char-index: 2;" class="wavy-char">s</span><span style="--char-index: 3;" class="wavy-char">a</span><span style="--char-index: 4;" class="wavy-char">b</span><span style="--char-index: 5;" class="wavy-char">l</span><span style="--char-index: 6;" class="wavy-char">e</span><span class="wavy-space"> </span><span style="--char-index: 7;" class="wavy-char">A</span><span style="--char-index: 8;" class="wavy-char">c</span><span style="--char-index: 9;" class="wavy-char">c</span><span style="--char-index: 10;" class="wavy-char">u</span><span style="--char-index: 11;" class="wavy-char">R</span><span style="--char-index: 12;" class="wavy-char">o</span><span style="--char-index: 13;" class="wavy-char">t</span><span style="--char-index: 14;" class="wavy-char">a</span><span style="--char-index: 15;" class="wavy-char">t</span><span style="--char-index: 16;" class="wavy-char">e</span></span></p>';
+  } else {
+    accurotate = false;
+    document.getElementById("accuRotateBtn").innerHTML = '<p><span class="wavy-wrapper"><span style="--char-index: 0;" class="wavy-char">e</span><span style="--char-index: 1;" class="wavy-char">n</span><span style="--char-index: 2;" class="wavy-char">a</span><span style="--char-index: 3;" class="wavy-char">b</span><span style="--char-index: 4;" class="wavy-char">l</span><span style="--char-index: 5;" class="wavy-char">e</span><span class="wavy-space"> </span><span style="--char-index: 7;" class="wavy-char">A</span><span style="--char-index: 8;" class="wavy-char">c</span><span style="--char-index: 9;" class="wavy-char">c</span><span style="--char-index: 10;" class="wavy-char">u</span><span style="--char-index: 11;" class="wavy-char">R</span><span style="--char-index: 12;" class="wavy-char">o</span><span style="--char-index: 13;" class="wavy-char">t</span><span style="--char-index: 14;" class="wavy-char">a</span><span style="--char-index: 15;" class="wavy-char">t</span><span style="--char-index: 16;" class="wavy-char">e</span></span></p>';
+    document.querySelector(".main-content").style.animation = 'unset';
+  }
+  
+}
