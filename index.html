@@ -19,13 +19,15 @@
 
 <header>
   <h1><a href="fizzbuzz.html">accuratelinuxgraphs.com</a></h1>
-  <p>YOUR source for the most ACCURATE linux graphs around.</p>
+  <p class="widen">YOUR source for the most ACCURATE linux graphs around.</p>
   <img id="site-icon" src="files/img/ico/grain.png" title="a project of the grain"></img>
+  <button onclick="document.body.style.animation = 'rotate 60s infinite linear';"><p>enable AccuRotate</p></button>
+  </body>
 </header>
 
 <body>
   <div class="main-content">
-	  <audio controls autoplay loop>
+	  <audio controls autoplay loop onplay="this.style.animation = 'rotatewidenvibrate 15s infinite linear';">
   <source src="files/free-software-song.ogg" type="audio/ogg">
 </audio>
 
