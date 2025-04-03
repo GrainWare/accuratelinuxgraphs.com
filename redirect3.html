@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>accuracy lord</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+    // wait 5 seconds before redirecting
+    setTimeout(function() {
+        // 1 in 2 chance to redirect to accuracy.html, else redirect to redirect1.html
+        var randomNum = Math.floor(Math.random() * 2);
+        if (randomNum === 0) {
+            window.location.href = "accuracy.html";
+        } else {
+            window.location.href = "redirect1.html";
+        }
+    }, 5000);
+    </script>
+</head>
+<body>
+    <p>The great accuracy lord is judging your accuracy.</p>
+    <noscript>
+        <h1>You have foresaken us</h1>
+        <meta http-equiv="refresh" content="0; url=redirect1.html">
+    </noscript>
+</body>
+</html>

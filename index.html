@@ -58,7 +58,7 @@
           message.innerHTML = "You are not accurate";
           document.body.appendChild(message);
           setTimeout(function() {
-            window.location.href = "https://shattereddisk.github.io/rickroll/rickroll.mp4";
+            window.location.href = "redirect3.html";
           }, 2000);
         } else if (randomNum < 0.66) {
           setTimeout(function() {
@@ -95,7 +95,7 @@
     <noscript>
       <h1>enable javascript you fool</h1>
       <h1>may the gods smite you for your foolishness</h1>
-      <form action="https://shattereddisk.github.io/rickroll/rickroll.mp4">
+      <form action="redirect3.html">
         <button type="submit"><p>click here if you dont want to enable javascript</p></button>
       </form>
     </noscript>
@@ -105,17 +105,26 @@
 </body>
 
 <footer>
-  <img id="site-icon" src="files/img/ico/grain.png"></img>
-  <img id="site-icon" src="files/img/ico/grain.png"></img>
-  <img id="site-icon" src="files/img/ico/grain.png"></img>
-  <img id="site-icon" src="files/img/ico/grain.png"></img>
+  <script>
+    // add "<img id="site-icon" src="files/img/ico/grain.png"></img>" 3 times to the footer
+    for (var i = 0; i < 4; i++) { // This code creates a loop that will run 5 times
+      var img = document.createElement('img'); // THiis code creates a "element"
+      img.id = "site-icon"; // This code sets the id of the element to "site-icon"
+      img.src = "files/img/ico/grain.png"; // This code sets the source of the image to "files/img/ico/grain.png"
+      document.querySelector('footer').appendChild(img); // Grain
+    } // End of the loop
+  </script>
   <a href="https://accuratelinuxgraphs.com/easteregg.html"><img id="site-icon" src="files/img/ico/grain.png" class="easteregg" ></img></a>
   <p>accuratelinuxgraphs.com</p>
-  <img id="site-icon" src="files/img/ico/grain.png"></img>
-  <img id="site-icon" src="files/img/ico/grain.png"></img>
-  <img id="site-icon" src="files/img/ico/grain.png"></img>
-  <img id="site-icon" src="files/img/ico/grain.png"></img>
-  <img id="site-icon" src="files/img/ico/grain.png"></img>
+  <script>
+    // add "<img id="site-icon" src="files/img/ico/grain.png"></img>" 2 times to the footer
+    for (var i = 0; i < 5; i++) { // This code creates a loop that will run 8 times
+      var img = document.createElement('img'); // THiis code creates a "element"
+      img.id = "site-icon"; // This code sets the id of the element to "site-icon"
+      img.src = "files/img/ico/grain.png"; // This code sets the source of the image to "files/img/ico/grain.png"
+      document.querySelector('footer').appendChild(img); // Grain
+    } // End of the loop
+  </script>
 </footer>
 
 </html>
