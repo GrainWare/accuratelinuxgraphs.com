@@ -21,269 +21,87 @@
   <h1><a href="fizzbuzz.html">accuratelinuxgraphs.com</a></h1>
   <p class="widen">YOUR source for the most ACCURATE linux graphs around.</p>
   <img id="site-icon" src="files/img/ico/grain.png" title="a project of the grain"></img>
-  <button id="accuRotateBtn" onclick="toggleAccuRotate()"><p>enable AccuRotate</p></button>
+  <script>
+    function neverAskAgain() {
+      localStorage.setItem('neverAskAgain', 'true');
+      window.location.href = "accuracy.html";
+    }
+    function checkIfNeverAskAgain() {
+      if (localStorage.getItem('neverAskAgain') === 'true') {
+        // remove every element from the page except for the <body> and <html> tags
+        var elements = document.body.children;
+        for (var i = elements.length - 1; i >= 0; i--) {
+          var element = elements[i];
+          if (element.tagName !== 'BODY' && element.tagName !== 'HTML') {
+            element.parentNode.removeChild(element);
+          }
+        }
+
+        var message = document.createElement('h1');
+        message.innerHTML = "You will be redirected to accuracy shortly. We are verifying your accuracy.";
+        document.body.appendChild(message);
+
+        // add a button to stop the redirect
+        var button = document.createElement('button');
+        button.innerHTML = "<p>Stop redirect</p>";
+        button.onclick = function() {
+          // remove the localStorage item and reload the page
+          localStorage.removeItem('neverAskAgain');
+          location.reload();
+        };
+        document.body.appendChild(button);
+
+        var randomNum = Math.random();
+        if (randomNum < 0.33) {
+          // say "You are not accurate" 
+          var message = document.createElement('h1');
+          message.innerHTML = "You are not accurate";
+          document.body.appendChild(message);
+          setTimeout(function() {
+            window.location.href = "https://shattereddisk.github.io/rickroll/rickroll.mp4";
+          }, 2000);
+        } else if (randomNum < 0.66) {
+          setTimeout(function() {
+            window.location.href = "accuracy.html";
+          }, 2000);
+        } else {
+          setTimeout(function() {
+            window.location.href = "accuracy.html";
+          }, 2000);
+        }
+      }
+    }
+  </script>
 </header>
 
-<body>
-  <div class="main-content">
-	  <audio controls autoplay loop onplay="this.style.animation = 'rotatewidenvibrate 15s infinite linear';">
-  <source src="files/free-software-song.ogg" type="audio/ogg">
-</audio>
-
+<body onload="checkIfNeverAskAgain()">
     <hr>
     <a href="https://store.accuratelinuxgraphs.com"><img class="ad" src="files/img/ad.gif"></a>
     <a href="https://stats.atl.dev"><img class="ad" src="files/img/ad2.gif"></a>
     <hr>
 
-    <div class="content-item graph">
-      <img class="graph-img" src="files/img/distroswagness.jpg">
-      <p class="graph-description">distro swagness graph</p>
-      <a class="graph-download-button" onclick='forceDownload("files/img/distroswagness.jpg", "distroswagness.jpg")'><img src="files/img/download.png"></a>
-    </div>
-    <hr>
+    <marquee behavior="alternate" scrollamount="50" direction="left">
+      <h1>ACCURACY ALERT</h1>
+    </marquee>
 
-    <div class="content-item graph">
-      <img class="graph-img" src="files/img/osbloat.jpeg">
-      <p class="graph-description">os bloat graph</p>
-      <a class="graph-download-button" onclick='forceDownload("files/img/osbloat.jpeg", "osbloat.jpeg")'><img src="files/img/download.png"></a>
-    </div>
-    <hr>
+    <h1>due to some CSS funkyness the page may cause epileptic seizures</h1>
+    <h1>if you are prone to seizures please close this page</h1>
+    <h1>if you are not, click below to continue or click the continue and never ask again button</h1>
+    <form action="accuracy.html">
+      <button type="submit"><p>continue</p></button>
+      <button type="button" onclick="neverAskAgain()"><p>continue and never ask again</p></button>
+    </form>
 
-    <div class="content-item graph">
-      <img class="graph-img" src="files/img/ramusage.jpeg">
-      <p class="graph-description">ram usage graph</p>
-      <a class="graph-download-button" onclick='forceDownload("files/img/ramusage.jpeg", "ramusage.jpeg")'><img src="files/img/download.png"></a>
-    </div>
-    <hr>
+    <noscript>
+      <h1>enable javascript you fool</h1>
+      <h1>may the gods smite you for your foolishness</h1>
+      <form action="https://shattereddisk.github.io/rickroll/rickroll.mp4">
+        <button type="submit"><p>click here if you dont want to enable javascript</p></button>
+      </form>
+    </noscript>
 
-    <div class="content-item graph">
-      <img class="graph-img" class="graph-img" src="files/img/linus.jpg">
-      <p class="graph-description">linus torvalds graph</p>
-      <a class="graph-download-button" onclick='forceDownload("files/img/linus.jpg", "linus.jpg")'><img src="files/img/download.png"></a>
-    </div>
-    <hr>
-
-    <div class="content-item graph">
-      <img class="graph-img" src="files/img/row2.png">
-      <p class="graph-description">row 2 graph<br>people to this day wonder what that means</p>
-      <a class="graph-download-button" onclick='forceDownload("files/img/row2.png", "row2.png")'><img src="files/img/download.png"></a>
-    </div>
-    <hr>
-
-    <div class="content-item graph">
-      <img class="graph-img" src="files/img/ubuntu.png">
-      <p class="graph-description">ubuntu graph</p>
-      <a class="graph-download-button" onclick='forceDownload("files/img/ubuntu.png", "ubuntu.png")'><img src="files/img/download.png"></a>
-    </div>
-    <hr>
-
-    <div class="content-item graph">
-      <img class="graph-img" src="files/img/marketshare.jpeg">
-      <p class="graph-description">market share graph</p>
-      <a class="graph-download-button" onclick='forceDownload("files/img/marketshare.jpeg", "marketshare.jpeg")'><img src="files/img/download.png"></a>
-    </div>
-    <hr>
-
-    <div class="content-item graph">
-      <img class="graph-img" src="files/img/marketshareprojected.png">
-      <p class="graph-description">market share projected graph</p>
-      <a class="graph-download-button" onclick='forceDownload("files/img/marketshareprojected.png", "marketshareprojected.png")'><img src="files/img/download.png"></a>
-    </div>
-    <hr>
-
-    <div class="content-item graph">
-      <img class="graph-img" src="files/img/rms.png">
-      <p class="graph-description">ricahrd stallman graph</p>
-      <a class="graph-download-button" onclick='forceDownload("files/img/rms.png", "rms.png")'><img src="files/img/download.png"></a>
-    </div>
-    <hr>
-
-    <div class="content-item graph">
-      <img class="graph-img" src="files/img/arch.png">
-      <p class="graph-description">arch (not loinux) graph</p>
-      <a class="graph-download-button" onclick='forceDownload("files/img/arch.png", "arch.png")'><img src="files/img/download.png"></a>
-    </div>
-    <hr>
-    
-    <div class="content-item graph">
-      <img class="graph-img" src="files/img/aod.png">
-      <p class="graph-description">linux/distro (International system unit)</p>
-      <a class="graph-download-button" onclick='forceDownload("files/img/aod.png", "aod.png")'><img src="files/img/download.png"></a>
-    </div>
-    <hr>
-
-    <div class="content-item graph">
-      <img class="graph-img" src="files/img/accuracy.png">
-      <p class="graph-description">linux accuracy graph</p>
-      <a class="graph-download-button" onclick='forceDownload("files/img/accuracy.png", "accuracy.png")'><img src="files/img/download.png"></a>
-    </div>
-    <hr>
-    
-    <div class="content-item graph">
-      <img class="graph-img" src="files/img/distro-difficult.png">
-      <p class="graph-description">linux ditro easy to hurd</p>
-      <a class="graph-download-button" onclick='forceDownload("files/img/distro-difficult.png", "distro-difficult.png")'><img src="files/img/download.png"></a>
-    </div>
-    <hr>
-    
-    <div class="content-item graph">
-      <img class="graph-img" src="files/img/usage.png">
-      <p class="graph-description">usag of linux in plaftorms</p>
-      <a class="graph-download-button" onclick='forceDownload("files/img/usage.png", "usage.png")'><img src="files/img/download.png"></a>
-    </div>
-    <hr>
-
-    <div class="content-item graph">
-      <img class="graph-img" src="files/img/money.png">
-      <p class="graph-description">money</p>
-      <a class="graph-download-button" onclick='forceDownload("files/img/money.png", "money.png")'><img src="files/img/download.png"></a>
-    </div>
-    <hr>
-
-    <div class="content-item graph">
-      <img class="graph-img" src="files/img/openbsdbloat.jpg">
-      <p class="graph-description">openbsd bloat</p>
-      <a class="graph-download-button" onclick='forceDownload("files/img/openbsdbloat.jpg", "openbsdbloat.jpg")'><img src="files/img/download.png"></a>
-    </div> 
-    <hr>
-
-    <div class="content-item graph">
-      <img class="graph-img" src="files/img/wayland.png">
-      <p class="graph-description">wayland</p>
-      <a class="graph-download-button" onclick='forceDownload("files/img/wayland.png", "wayland.png")'><img src="files/img/download.png"></a>
-    </div> 
-    <hr>
-
-    <div class="content-item graph">
-      <img class="graph-img" src="files/img/linuxdevelopment.png">
-      <p class="graph-description">linux development</p>
-      <a class="graph-download-button" onclick='forceDownload("files/img/linuxdevelopment.png", "linuxdevelopment.png")'><img src="files/img/download.png"></a>
-    </div>
-    <hr>
-
-    <div class="content-item graph">
-      <img class="graph-img" src="files/img/gamijng.png">
-      <p class="graph-description">gamijng</p>
-      <a class="graph-download-button" onclick='forceDownload("files/img/gamijng.png", "gamijng.png")'><img src="files/img/download.png"></a>
-    </div>
-    <hr>
-
-    <div class="content-item graph">
-      <img class="graph-img" src="files/img/mobilead.png">
-      <p class="graph-description">mobile users rejoice</p>
-      <a class="graph-download-button" onclick='forceDownload("files/img/mobilead.png", "mobilead.png")'><img src="files/img/download.png"></a>
-    </div>
-    <hr>
-
-    <div class="content-item graph">
-      <img class="graph-img" src="files/img/yearofthelinuxdesktop.png">
-      <p class="graph-description">yeaæææææææææææææææææa</p>
-      <a class="graph-download-button" onclick='forceDownload("files/img/yearofthelinuxdesktop.png", "yearofthelinuxdesktop.png")'><img src="files/img/download.png"></a>
-    </div>
-    <hr>
-
-    <div class="content-item graph">
-      <img class="graph-img" src="files/img/tuxcolors.gif">
-      <p class="graph-description">tux color graph<br>this is the first fancy animated graph</p>
-      <a class="graph-download-button" onclick='forceDownload("files/img/tuxcolors.gif", "tuxcolors.gif")'><img src="files/img/download.png"></a>
-    </div>
-    <hr>
-
-    <div class="content-item graph">
-      <img class="graph-img" src="files/img/accperyear.png">
-      <p class="graph-description">accuracy per year</p>
-      <a class="graph-download-button" onclick='forceDownload("files/img/accperyear.png", "accperyear.png")'><img src="files/img/download.png"></a>
-    </div>
-    <hr>
-
-    <div class="content-item graph">
-      <img class="graph-img" src="files/img/revision-speed.png">
-      <p class="graph-description">linuxers average linuxing speed</p>
-      <a class="graph-download-button" onclick='forceDownload("files/img/revision-speed.png", "revision-speed.png")'><img src="files/img/download.png"></a>
-    </div>
-    <hr>
-
-    <div class="content-item graph">
-      <img class="graph-img" src="files/img/distroswagness.png">
-      <p class="graph-description">distro swagness v2</p>
-      <br>
-      <a class="graph-download-button" onclick='forceDownload("files/img/distroswagness.png", "distroswagness.png")'><img src="files/img/download.png"></a>
-    </div>
-    <hr>
-
-    <div class="content-item graph">
-      <img class="graph-img" src="files/img/accuratelinuxgraphs.png">
-      <p class="graph-description">accurate linux graphs is back</p>
-      <a class="graph-download-button" onclick='forceDownload("files/img/accuratelinuxgraphs.png", "accuratelinuxgraphs.png")'><img src="files/img/download.png"></a>
-    </div>
-    <hr>
-
-    <div class="content-item graph">
-      <img class="graph-img" src="files/img/linux.png">
-      <p class="graph-description">linux</p>
-      <a class="graph-download-button" onclick='forceDownload("files/img/linux.png", "linux.png")'><img src="files/img/download.png"></a>
-    </div>
-    <hr>
-
-    <div class="content-item graph">
-      <img class="graph-img" src="files/img/buy.png">
-      <p class="graph-description">BUY</p>
-      <a class="graph-download-button" onclick='forceDownload("files/img/buy.png", "buy.png")'><img src="files/img/download.png"></a>
-    </div>
-    <hr>
-
-    <div class="content-item graph">
-      <img class="graph-img" src="files/img/XYZ.png">
-      <p class="graph-description">XYZ</p>
-      <a class="graph-download-button" onclick='forceDownload("files/img/XYZ.png", "XYZ.png")'><img src="files/img/download.png"></a>
-    </div>
-    <hr>
-
-    <div class="content-item graph">
-      <img class="graph-img" src="files/img/LINUXPERLINUX.png">
-      <p class="graph-description">LINUXPERLINUX</p>
-      <a class="graph-download-button" onclick='forceDownload("files/img/LINUXPERLINUX.png", "LINUXPERLINUX.png")'><img src="files/img/download.png"></a>
-    </div>
-    <hr>
-
-    <div class="content-item graph">
-      <img class="graph-img" src="files/img/bloatperhour.png">
-      <p class="graph-description">bloat per hour</p>
-      <a class="graph-download-button" onclick='forceDownload("files/img/bloatperhour.png", "bloatperhour.png")'><img src="files/img/download.png"></a>
-    </div>
-    <hr>
-
-    <div class="content-item graph">
-      <img class="graph-img" src="files/img/compilerpercompiler.png">
-      <p class="graph-description">compiler per compiler</p>
-      <a class="graph-download-button" onclick='forceDownload("files/img/compilerpercompiler.png", "compilerpercompiler.png")'><img src="files/img/download.png"></a>
-    </div>
-    <hr>
-
-    <div class="content-item graph">
-      <img class="graph-img" src="files/img/fedrorusers.png">
-      <p class="graph-description">fedror users</p>
-      <a class="graph-download-button" onclick='forceDownload("files/img/fedrorusers.png", "fedrorusers.png")'><img src="files/img/download.png"></a>
-    </div>
-    <hr>
-
-    <!-- graphs end -->
-
-    <div class="content-item cool-fact">
-      <h3 style="text-decoration: underline;">COOL LINUX FACT!</h3>
-      <p>linux was created by linus torvalds in 1935<br>click linus for more info</p>
-      <br>
-      <img class="torvalds" src="files/img/linux-torvald.jpg" width="500px" height="500px" onclick="h()">
-    </div>
-    <hr>
-    
-    <div class="content-item graph">
-      <a class="graph-download-button" onclick='h2()'><img src="files/img/download.png"></a>
-    </div>
-
-    <button onclick="stopAnimations()">stop animations</button>
+    <button onclick="stopAnimations()"><p>stop animations</p></button>
   </div>
-  <div class="side-text"><p>accuratelinuxgraphs.com</p></div>
 </body>
 
 <footer>

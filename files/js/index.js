@@ -50,7 +50,7 @@ function h2() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-  // Select all text-containing elements
+  // Select all text-containing elements for wavy effect
   const textElements = document.querySelectorAll('p, h1, h2, h3, h4, h5, h6, span, a, li, td, th, label, button, div');
   
   // Process each element
@@ -124,18 +124,92 @@ document.addEventListener('DOMContentLoaded', function() {
     
     return false;
   }
+
+  var graphImgs = document.querySelectorAll('.graph-img');
+  console.log("found graph imgs: " + graphImgs.length);
+
+  // Hover state tracking
+  let isHovering = false;
+  let hoverTimeout = null;
+  let currentImage = null;
+  let originalImages = new Map(); // Store original srcs
+  
+  // Pre-load all images to prevent flickering
+  graphImgs.forEach(img => {
+    const preloadImg = new Image();
+    preloadImg.src = img.src;
+  });
+  
+  graphImgs.forEach(function(graphImg) {
+    console.log("found graph img: " + graphImg.src);
+    
+    graphImg.addEventListener('mouseover', function() {
+      // Clear any pending reset timeout
+      if (hoverTimeout) {
+        clearTimeout(hoverTimeout);
+        hoverTimeout = null;
+      }
+      
+      // If already hovering this image, do nothing
+      if (isHovering && currentImage === this.src) {
+        return;
+      }
+      
+      isHovering = true;
+      currentImage = this.src;
+      console.log("hover on: " + this.src);
+      
+      // Change background
+      document.body.style.backgroundImage = "url('" + this.src + "')";
+      document.body.style.backgroundSize = "cover";
+      document.body.style.backgroundPosition = "center";
+      
+      // Store original images and replace with current image
+      var images = document.querySelectorAll('img');
+      for (var i = 0; i < images.length; i++) {
+        // Skip download buttons
+        if (images[i].closest('.graph-download-button')) {
+          continue;
+        }
+        
+        // Store original only if not already stored
+        if (!originalImages.has(images[i])) {
+          originalImages.set(images[i], images[i].src);
+        }
+
+        // get old images width and height even if not explicitly set
+        var oldWidth = images[i].naturalWidth || images[i].width;
+        var oldHeight = images[i].naturalHeight || images[i].height;
+
+        // Set new image size
+        images[i].width = oldWidth;
+        images[i].height = oldHeight;
+        
+        // Set new image
+        images[i].src = this.src;
+      }
+    }); 
+    
+    graphImg.addEventListener('mouseout', function() {
+      if (!isHovering) return; // Safety check
+      
+      console.log("hover off (with delay)");
+      isHovering = false;
+      currentImage = null;
+      
+      // Restore background
+      document.body.style.backgroundImage = "url('files/img/tux.gif')";
+      document.body.style.backgroundSize = "100px";
+      document.body.style.backgroundRepeat = "repeat";
+      document.body.style.backgroundAttachment = "fixed";
+
+      // Restore original images
+      originalImages.forEach((originalSrc, img) => {
+        img.src = originalSrc;
+      });
+      
+      // Clear stored originals
+      originalImages.clear();
+    });
+  });
 });
-
-accurotate = false;
-
-function toggleAccuRotate() {
-  if (!accurotate) {
-    accurotate = true;
-    document.querySelector(".main-content").style.animation = 'rotate 60s infinite linear';
-    document.getElementById("accuRotateBtn").innerHTML = '<p><span class="wavy-wrapper"><span style="--char-index: 0;" class="wavy-char">d</span><span style="--char-index: 1;" class="wavy-char">i</span><span style="--char-index: 2;" class="wavy-char">s</span><span style="--char-index: 3;" class="wavy-char">a</span><span style="--char-index: 4;" class="wavy-char">b</span><span style="--char-index: 5;" class="wavy-char">l</span><span style="--char-index: 6;" class="wavy-char">e</span><span class="wavy-space"> </span><span style="--char-index: 7;" class="wavy-char">A</span><span style="--char-index: 8;" class="wavy-char">c</span><span style="--char-index: 9;" class="wavy-char">c</span><span style="--char-index: 10;" class="wavy-char">u</span><span style="--char-index: 11;" class="wavy-char">R</span><span style="--char-index: 12;" class="wavy-char">o</span><span style="--char-index: 13;" class="wavy-char">t</span><span style="--char-index: 14;" class="wavy-char">a</span><span style="--char-index: 15;" class="wavy-char">t</span><span style="--char-index: 16;" class="wavy-char">e</span></span></p>';
-  } else {
-    accurotate = false;
-    document.querySelector(".main-content").style.animation = 'unset';
-    document.getElementById("accuRotateBtn").innerHTML = '<p><span class="wavy-wrapper"><span style="--char-index: 0;" class="wavy-char">e</span><span style="--char-index: 1;" class="wavy-char">n</span><span style="--char-index: 2;" class="wavy-char">a</span><span style="--char-index: 3;" class="wavy-char">b</span><span style="--char-index: 4;" class="wavy-char">l</span><span style="--char-index: 5;" class="wavy-char">e</span><span class="wavy-space"> </span><span style="--char-index: 7;" class="wavy-char">A</span><span style="--char-index: 8;" class="wavy-char">c</span><span style="--char-index: 9;" class="wavy-char">c</span><span style="--char-index: 10;" class="wavy-char">u</span><span style="--char-index: 11;" class="wavy-char">R</span><span style="--char-index: 12;" class="wavy-char">o</span><span style="--char-index: 13;" class="wavy-char">t</span><span style="--char-index: 14;" class="wavy-char">a</span><span style="--char-index: 15;" class="wavy-char">t</span><span style="--char-index: 16;" class="wavy-char">e</span></span></p>';
-  }
-}
