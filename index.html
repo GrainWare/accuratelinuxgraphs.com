@@ -27,6 +27,7 @@
       window.location.href = "accuracy.html";
     }
     function checkIfNeverAskAgain() {
+      stopAnimations()
       if (localStorage.getItem('neverAskAgain') === 'true') {
         // remove every element from the page except for the <body> and <html> tags
         var elements = document.body.children;
@@ -105,8 +106,6 @@
         <button type="submit"><p>click here if you dont want to enable javascript</p></button>
       </form>
     </noscript>
-
-    <button onclick="stopAnimations()"><p>stop animations</p></button>
   </div>
 </body>
 
